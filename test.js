@@ -14,7 +14,6 @@ test('blocks event loop for given amount of milliseconds', ({ is, end }) => {
 })
 
 if (typeof BigInt !== 'undefined') {
-
   test('allows ms to be supplied as a BigInt number', ({ is, end }) => {
     const now = Date.now()
     setTimeout(() => {
@@ -25,7 +24,6 @@ if (typeof BigInt !== 'undefined') {
     }, 100)
     sleep(BigInt(1000)) // avoiding n notation as this will error on legacy node/browsers
   })
-
 }
 
 test('throws range error if ms less than 0', ({ throws, end }) => {
@@ -41,7 +39,7 @@ test('throws range error if ms is Infinity', ({ throws, end }) => {
 test('throws range error if ms is not a number or bigint', ({ throws, end }) => {
   throws(() => sleep('Infinity'), TypeError('sleep: ms must be a number'))
   throws(() => sleep('foo'), TypeError('sleep: ms must be a number'))
-  throws(() => sleep({a: 1}), TypeError('sleep: ms must be a number'))
-  throws(() => sleep([1,2,3]), TypeError('sleep: ms must be a number'))
+  throws(() => sleep({ a: 1 }), TypeError('sleep: ms must be a number'))
+  throws(() => sleep([1, 2, 3]), TypeError('sleep: ms must be a number'))
   end()
 })

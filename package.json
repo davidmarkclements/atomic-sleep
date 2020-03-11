@@ -4,7 +4,7 @@
   "description": "Zero CPU overhead, zero dependency, true event-loop blocking sleep",
   "main": "index.js",
   "scripts": {
-    "test": "tap -R classic- -j1 test",
+    "test": "tap -R classic",
     "lint": "standard",
     "ci": "npm run lint && npm test"
   },
